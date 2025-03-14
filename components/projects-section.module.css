@@ -1,0 +1,133 @@
+.projects {
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  position: relative;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  display: inline-block;
+  color: var(--primary);
+  z-index: 2;
+}
+
+.sectionTitle::after {
+  content: "Projects";
+  position: absolute;
+  top: var(--offset);
+  left: var(--offset);
+  color: var(--secondary);
+  z-index: 1;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.projectCard {
+  position: relative;
+  border: 2px solid var(--text);
+  background-color: white;
+  overflow: hidden;
+  transition: transform 0.3s;
+  z-index: 2;
+}
+
+.projectCard::after {
+  content: "";
+  position: absolute;
+  top: var(--offset);
+  left: var(--offset);
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary);
+  border: 2px solid var(--text);
+  z-index: -1;
+  transition: transform 0.3s;
+}
+
+.projectCard:hover {
+  transform: translate(-4px, -4px);
+}
+
+.projectCard:hover::after {
+  transform: translate(8px, 8px);
+}
+
+.imageContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 2px solid var(--text);
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.projectContent {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.projectDescription {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  padding: 0.25rem 0.5rem;
+  background-color: var(--accent);
+  font-size: 0.75rem;
+  border: 1px solid var(--text);
+}
+
+.projectLink {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--text);
+  transition: background-color 0.3s;
+}
+
+.projectLink:hover {
+  background-color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
